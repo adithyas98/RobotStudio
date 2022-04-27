@@ -43,6 +43,23 @@ class UDPComms:
         '''
         MSG = pickle.dumps(MSG)
         self.socket.sendto(MSG,(IP,PORT))
+    def addConection(self,IP,PORT,NAME,Status=True):
+        '''
+        This will add a new connection to the table
+        Input:
+            - IP address to add
+            - PORT: port to add
+            - NAME: Name of device(STRING)
+            - Status: The Status of the device
+        '''
+        self.connections[NAME] = dict()
+        self.connections[NAME]['IP'] = IP
+        self.connections[NAME]['PORT'] = PORT
+        self.connections[NAME]['STATUS'] = Status
+    def removeConection(self,NAME):
+        '''
+        This will remove and item from 
+
     def recieve(self):
         '''
         Will wait and recieve a message
