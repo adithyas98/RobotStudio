@@ -8,11 +8,11 @@ import time
 LX16A.initialize("/dev/tty.usbserial-1420")
 
 try:
-    servo1 = LX16A(1)
-    #servo2 = LX16A(2)
+    #servo1 = LX16A(1)
+    servo2 = LX16A(2)
     #servo3 = LX16A(3)
-    servo1.set_angle_limits(0, 240)
-    #servo2.set_angle_limits(0, 240)
+    #servo1.set_angle_limits(0, 240)
+    servo2.set_angle_limits(0, 240)
     #servo3.set_angle_limits(0, 240)
 except ServoTimeoutError as e:
     print(f"Servo guy {e.id_} isn't responding :( ")
@@ -20,8 +20,8 @@ except ServoTimeoutError as e:
 
 t = 0
 while True:
-    servo1.move(sin(4*t) * 60 + 60)
-    #servo2.move(cos(t) * 60 + 60)
+    #servo1.move(sin(t) * 20 + 20 )
+    servo2.move(60 * sin(t) + 60 )
     #servo3.move(cos(t) * 60 + 60)
     #angle = servo1.get_physical_angle()
     #print(angle)
